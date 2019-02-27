@@ -1,6 +1,6 @@
 package com.challenge.albumlistapp.di.modules;
 
-import com.challenge.albumlistapp.view.AlbumListViewModel;
+import com.challenge.albumlistapp.view.album_list.AlbumListViewModel;
 import com.challenge.albumlistapp.di.ViewModelKey;
 import com.challenge.albumlistapp.utils.ViewModelFactory;
 

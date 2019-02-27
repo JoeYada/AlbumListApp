@@ -13,9 +13,10 @@ public abstract class BaseActivity extends DaggerAppCompatActivity {
     protected abstract int layoutRes();
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layoutRes());
         ButterKnife.bind(this);
     }
+
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/album_list_card_margin"
+    card_view:cardElevation="@dimen/album_list_card_elevation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/user_id_label"
+            android:text="@string/userId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/user_id_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/general_margin_start"
+            android:layout_toEndOf="@id/user_id_label" />
+
+        <TextView
+            android:id="@+id/album_name_label"
+            android:text="@string/album_name"
+            android:layout_below="@id/user_id_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/album_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/album_name_label"
+            android:layout_marginStart="@dimen/general_margin_start"
+            android:layout_toEndOf="@id/user_id_label" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

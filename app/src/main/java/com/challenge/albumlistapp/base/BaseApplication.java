@@ -1,17 +1,33 @@
 package com.challenge.albumlistapp.base;
 
-import dagger.android.AndroidInjector;
-import dagger.android.support.DaggerApplication;
+import android.app.Activity;
+import android.app.Application;
 
-public class BaseApplication extends DaggerApplication {
+import com.challenge.albumlistapp.di.component.ApplicationComponent;
+import com.challenge.albumlistapp.di.component.DaggerApplicationComponent;
+
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
+
+public class BaseApplication extends Application implements HasActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        ApplicationComponent component = DaggerApplicationComponent.builder()
+                .application(this).build();
+        component.inject(this);
     }
 
+
     @Override
-    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-        return null;
+    public AndroidInjector<Activity> activityInjector() {
+        return activityDispatchingAndroidInjector;
     }
 }

@@ -1,4 +1,4 @@
-package com.challenge.albumlistapp.base.view;
+package com.challenge.albumlistapp.view;
 
 import android.os.Bundle;
 
@@ -16,7 +16,7 @@ public class AlbumListActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(R.id.container, new AlbumListFragment()).commit();
         }
     }

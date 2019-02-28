@@ -1,5 +1,8 @@
 package com.challenge.albumlistapp.di.modules;
 
+import com.challenge.albumlistapp.service.AlbumsService;
+import com.challenge.albumlistapp.service.remote.DataManager;
+import com.challenge.albumlistapp.service.remote.DataManagerImpl;
 import com.challenge.albumlistapp.utils.Constants;
 
 import javax.inject.Singleton;
@@ -15,11 +18,23 @@ public class ApplicationModule {
 
     @Singleton
     @Provides
-    static Retrofit provideRetrofit() {
+    Retrofit provideRetrofit() {
         return new Retrofit.Builder().baseUrl(Constants.BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+    }
+
+    @Singleton
+    @Provides
+    AlbumsService provideRetrofitService(Retrofit retrofit) {
+        return retrofit.create(AlbumsService.class);
+    }
+
+    @Singleton
+    @Provides
+    DataManager provideDataManager(AlbumsService service) {
+        return new DataManagerImpl(service);
     }
 
 }

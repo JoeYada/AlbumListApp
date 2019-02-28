@@ -4,7 +4,7 @@ import com.challenge.albumlistapp.models.Album;
 import com.challenge.albumlistapp.service.AlbumsService;
 import com.challenge.albumlistapp.service.local.AlbumsDao;
 import com.challenge.albumlistapp.utils.ConnectivityUtils.OnlineChecker;
-import com.challenge.albumlistapp.utils.SchedulerProvider;
+import com.challenge.albumlistapp.common.SchedulerProvider;
 import com.challenge.albumlistapp.utils.SortUtils;
 
 import java.util.List;

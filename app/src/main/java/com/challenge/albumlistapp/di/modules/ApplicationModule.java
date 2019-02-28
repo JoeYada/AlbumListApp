@@ -11,10 +11,10 @@ import com.challenge.albumlistapp.service.AlbumsService;
 import com.challenge.albumlistapp.service.local.AlbumsDao;
 import com.challenge.albumlistapp.service.remote.DataManager;
 import com.challenge.albumlistapp.service.remote.DataManagerImpl;
-import com.challenge.albumlistapp.utils.BaseSchedulerProvider;
+import com.challenge.albumlistapp.common.BaseSchedulerProvider;
 import com.challenge.albumlistapp.utils.ConnectivityUtils.DefaultOnlineChecker;
 import com.challenge.albumlistapp.utils.ConnectivityUtils.OnlineChecker;
-import com.challenge.albumlistapp.utils.SchedulerProvider;
+import com.challenge.albumlistapp.common.SchedulerProvider;
 
 import javax.inject.Singleton;
 

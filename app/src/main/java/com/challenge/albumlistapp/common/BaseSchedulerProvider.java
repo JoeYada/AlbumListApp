@@ -1,4 +1,4 @@
-package com.challenge.albumlistapp.utils;
+package com.challenge.albumlistapp.common;
 
 import androidx.annotation.NonNull;
 import io.reactivex.Scheduler;

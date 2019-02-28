@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import com.challenge.albumlistapp.R;
 import com.challenge.albumlistapp.base.BaseFragment;
-import com.challenge.albumlistapp.utils.ViewModelFactory;
+import com.challenge.albumlistapp.common.ViewModelFactory;
 
 import javax.inject.Inject;
 

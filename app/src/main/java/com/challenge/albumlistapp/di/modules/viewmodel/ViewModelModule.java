@@ -1,7 +1,7 @@
 package com.challenge.albumlistapp.di.modules.viewmodel;
 
 import com.challenge.albumlistapp.view.album_list.AlbumListViewModel;
-import com.challenge.albumlistapp.utils.ViewModelFactory;
+import com.challenge.albumlistapp.common.ViewModelFactory;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;

@@ -1,4 +1,4 @@
-package com.challenge.albumlistapp.utils;
+package com.challenge.albumlistapp.common;
 
 import javax.inject.Inject;
 

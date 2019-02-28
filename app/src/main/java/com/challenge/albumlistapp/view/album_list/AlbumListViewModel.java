@@ -2,7 +2,7 @@ package com.challenge.albumlistapp.view.album_list;
 
 import com.challenge.albumlistapp.models.Album;
 import com.challenge.albumlistapp.service.remote.DataManager;
-import com.challenge.albumlistapp.utils.SchedulerProvider;
+import com.challenge.albumlistapp.common.SchedulerProvider;
 
 import java.util.List;
 

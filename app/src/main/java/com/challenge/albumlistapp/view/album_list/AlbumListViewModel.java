@@ -2,6 +2,7 @@ package com.challenge.albumlistapp.view.album_list;
 
 import com.challenge.albumlistapp.models.Album;
 import com.challenge.albumlistapp.service.remote.DataManager;
+import com.challenge.albumlistapp.utils.SchedulerProvider;
 
 import java.util.List;
 
@@ -9,21 +10,21 @@ import javax.inject.Inject;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class AlbumListViewModel extends ViewModel {
 
     private final DataManager dataManager;
     private CompositeDisposable compositeDisposable;
+    private final SchedulerProvider schedulerProvider;
 
     private MutableLiveData<List<Album>> albumsList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
     private MutableLiveData<Boolean> showErrorToast = new MutableLiveData<>();
 
     @Inject
-    public AlbumListViewModel(DataManager dataManager) {
+    public AlbumListViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        this.schedulerProvider = schedulerProvider;
         compositeDisposable = new CompositeDisposable();
         this.dataManager = dataManager;
         getAlbums();
@@ -32,8 +33,8 @@ public class AlbumListViewModel extends ViewModel {
     private void getAlbums() {
         setIsLoading(true);
         compositeDisposable.add(dataManager
-                .getAlbums().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .getAlbums().subscribeOn(schedulerProvider.io())
+                .observeOn(schedulerProvider.ui())
                 .doOnSubscribe(data -> setIsLoading(true))
                 .doOnSuccess(data -> setIsLoading(false))
                 .doOnError(data -> {

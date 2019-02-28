@@ -1,23 +1,30 @@
 package com.challenge.albumlistapp.models;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Album {
 
-    @SerializedName("userId")
-    @Expose
-    private int userId;
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     @SerializedName("id")
-    @Expose
     private int id;
+    @ColumnInfo(name = "title")
     @SerializedName("title")
-    @Expose
     private String title;
+    @ColumnInfo(name = "userId")
+    @SerializedName("userId")
+    private int userId;
 
     /**
      * No args constructor for use in serialization
      */
+    @Ignore
     public Album() {
     }
 

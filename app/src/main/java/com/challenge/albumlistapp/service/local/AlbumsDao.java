@@ -23,7 +23,7 @@ public interface AlbumsDao {
      * @return the album with id
      */
     @Query("SELECT * FROM Album WHERE id = :id")
-    Single<Album> getById(String id);
+    Single<Album> getAlbumById(int id);
 
     /**
      * Insert Album in the database. If the Album already exists, ignore the action.
@@ -31,5 +31,5 @@ public interface AlbumsDao {
      * @param album to be inserted.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void inset(Album album);
+    void insert(Album album);
 }

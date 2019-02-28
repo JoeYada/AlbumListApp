@@ -79,4 +79,23 @@ public class Album {
         return this;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Album)) return false;
+
+        Album album = (Album) o;
+
+        if (getId() != album.getId()) return false;
+        if (getUserId() != album.getUserId()) return false;
+        return getTitle() != null ? getTitle().equals(album.getTitle()) : album.getTitle() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + (getTitle() != null ? getTitle().hashCode() : 0);
+        result = 31 * result + getUserId();
+        return result;
+    }
 }

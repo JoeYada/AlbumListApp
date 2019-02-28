@@ -1,4 +1,4 @@
-package com.challenge.albumlistapp.di;
+package com.challenge.albumlistapp.di.modules.viewmodel;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

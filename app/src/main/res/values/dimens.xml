@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="album_list_card_margin">10dp</dimen>
+    <dimen name="album_list_card_margin">5dp</dimen>
     <dimen name="album_list_card_elevation">8dp</dimen>
     <dimen name="general_margin_start">10dp</dimen>
 </resources>

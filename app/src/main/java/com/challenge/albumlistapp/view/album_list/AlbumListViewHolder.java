@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.challenge.albumlistapp.R;
+import com.challenge.albumlistapp.models.Album;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,7 +24,8 @@ class AlbumListViewHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
     }
 
-    public void bind() {
-
+    public void bind(Album album) {
+        userIdTextView.setText(String.valueOf(album.getUserId()));
+        albumTextView.setText(album.getTitle());
     }
 }

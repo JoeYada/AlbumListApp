@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.challenge.albumlistapp.R;
+import com.challenge.albumlistapp.models.Album;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListViewHolder> {
 
-    List<?> albumList = new ArrayList<>();
+    List<Album> albumList = new ArrayList<>();
 
     @NonNull
     @Override
@@ -26,9 +27,9 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AlbumListViewHolder albumListViewHolder, int i) {
-
-        albumListViewHolder.bind();
+    public void onBindViewHolder(@NonNull AlbumListViewHolder albumListViewHolder, int position) {
+        Album album = albumList.get(position);
+        albumListViewHolder.bind(album);
     }
 
     @Override
@@ -36,10 +37,11 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListViewHolder> 
         return albumList != null ? albumList.size() : 0;
     }
 
-    public void setAlbumList(List<?> newItems) {
-        if (newItems.size() > 0) {
-            newItems.clear();
+    public void setAlbumList(List<Album> newItems) {
+        if (albumList.size() > 0) {
+            albumList.clear();
         }
-        albumList = newItems;
+        albumList.addAll(newItems);
+        notifyDataSetChanged();
     }
 }

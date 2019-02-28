@@ -5,6 +5,7 @@ import com.challenge.albumlistapp.service.AlbumsService;
 import com.challenge.albumlistapp.service.local.AlbumsDao;
 import com.challenge.albumlistapp.utils.ConnectivityUtils.OnlineChecker;
 import com.challenge.albumlistapp.utils.SchedulerProvider;
+import com.challenge.albumlistapp.utils.SortUtils;
 
 import java.util.List;
 
@@ -35,12 +36,13 @@ public class DataManagerImpl implements DataManager {
                     if (onlineChecker.isOnline() && data.isEmpty()) {
                         return albumsService.getAlbums()
                                 .doOnSuccess(albums -> {
+                                    SortUtils.sortByTitle(albums);
                                     for (Album album : albums) {
                                         saveAlbum(album);
                                     }
                                 });
                     }
-                    return Single.just(data);
+                    return Single.just(SortUtils.sortByTitle(data));
                 });
     }
 

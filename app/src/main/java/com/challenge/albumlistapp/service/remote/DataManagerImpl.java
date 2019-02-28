@@ -45,7 +45,7 @@ public class DataManagerImpl implements DataManager {
     }
 
     private void saveAlbum(Album album) {
-        Completable.fromRunnable(() -> albumsDao.inset(album))
+        Completable.fromRunnable(() -> albumsDao.insert(album))
                 .subscribeOn(schedulerProvider.io()).subscribe();
     }
 
